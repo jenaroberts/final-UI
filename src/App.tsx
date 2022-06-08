@@ -1,16 +1,20 @@
 import { ThemeProvider } from "@emotion/react";
-import { Home } from "@mui/icons-material";
+import { Home } from "./pages/Home";
 import { createTheme, CssBaseline } from "@mui/material";
 import "./scss/app.scss";
 
+import { TaskPage } from "./pages/TaskPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 const theme = createTheme({
   typography: {
-    fontFamily: `fantasy`,
+    fontFamily: `monospace`,
+    fontSize: 28,
   },
   palette: {
-    mode: "dark",
+    mode: "light",
     background: {
-      default: "#82b3c9",
+      default: "#90a4ae",
     },
     primary: {
       main: "#rgb(11, 11, 65)",
@@ -25,9 +29,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
-        <h1>home page</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/taskPage" element={<TaskPage />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

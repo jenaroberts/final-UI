@@ -1,9 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Input } from "@mui/material";
+import { Card } from "@mui/material";
 
 export const Home = () => {
-  return <Input aria-label="email" />;
+  return (
+    <div className="container">
+      <img src="/weblogo.png" className="site-logo" />
+      <Card className="card">
+        <h1 className="title">Nuero Adulting</h1>
+        <p>
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah
+        </p>
+
+        <button className="button">Log In </button>
+      </Card>
+    </div>
+  );
 };

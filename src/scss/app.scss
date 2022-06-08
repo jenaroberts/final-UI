@@ -1,0 +1,73 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+.chip-container {
+  margin: auto;
+
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 1000px;
+  font-weight: bolder !important;
+  column-gap: 50px;
+  row-gap: 30px;
+  align-content: center;
+}
+.MuiChip-root {
+  color: white !important;
+  border-color: white !important;
+  text-shadow: 2px 2px 4px black;
+  border-style: dashed !important;
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+  border-width: 3px !important;
+  width: 300px;
+}
+.button-container {
+  object-position: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-weight: 400px !important;
+  row-gap: 3em;
+  align-content: center;
+}
+.button {
+  margin: 20px;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwB_6EuyYM7FcnkomMC4HayOnGwOL9kHIRg&usqp=CAU);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  font-family: monospace;
+  height: 80px !important;
+  width: 200px;
+  font-size: 30pt;
+  font-weight: bolder;
+  text-shadow: 3px 3px 4px black;
+  border-radius: 9px;
+  border-width: 3pt;
+}
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  height: 75px;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.card {
+  width: 500px;
+  align-items: center;
+  text-align: center;
+  border-radius: 0%;
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: black;
+  background-color: white;
+}
