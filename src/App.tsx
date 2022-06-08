@@ -17,10 +17,10 @@ const theme = createTheme({
       default: "#90a4ae",
     },
     primary: {
-      main: "#rgb(11, 11, 65)",
+      main: "#9c27b0",
     },
     secondary: {
-      main: "#ffb300",
+      main: "#311b92",
     },
   },
 });

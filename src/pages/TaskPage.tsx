@@ -1,4 +1,4 @@
-import { Chip } from "@mui/material";
+import { Chip, FormControlLabel, FormGroup, Switch } from "@mui/material";
 
 const tasks = [
   "Wash Sheets",
@@ -27,13 +27,28 @@ const tasks = [
 export const TaskPage = () => {
   return (
     <>
-      <div className="chip-container">
-        {tasks.map((task) => (
-          <Chip label={task} variant="outlined" />
-        ))}
-      </div>
-      <div className="button-container">
-        <button className="button">Submit</button>
+      <div className="task-page-container">
+        <div className="switch">
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch />}
+              label="Do you take daily medication?"
+            />
+          </FormGroup>
+        </div>
+        <div className="chip-container">
+          {tasks.map((task) => (
+            <Chip label={task} variant="outlined" />
+          ))}
+        </div>
+        <div className="input-container">
+          <input />
+          <input />
+          <input />
+        </div>
+        <div className="button-container">
+          <button className="button">Submit</button>
+        </div>
       </div>
     </>
   );
