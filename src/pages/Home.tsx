@@ -4,9 +4,9 @@ import { Card } from "@mui/material";
 
 export const Home = () => {
   return (
-    <div className="container">
+    <div className="home-container">
       <img src="/weblogo.png" className="site-logo" />
-      <Card className="card">
+      <Card className="hero-card">
         <h1 className="title">Nuero Adulting</h1>
         <p>
           blah blah blah blah blah blah blah blah blah blah blah blah blah blah

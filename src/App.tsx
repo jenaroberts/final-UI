@@ -2,7 +2,7 @@ import { ThemeProvider } from "@emotion/react";
 import { Home } from "./pages/Home";
 import { createTheme, CssBaseline } from "@mui/material";
 import "./scss/app.scss";
-
+import { Dash } from "./pages/TaskDash";
 import { TaskPage } from "./pages/TaskPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -33,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/taskPage" element={<TaskPage />} />
+          <Route path="/dashboard" element={<Dash />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
