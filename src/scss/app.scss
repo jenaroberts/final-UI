@@ -103,6 +103,58 @@ input {
   background-color: white;
 }
 .card-container {
+  margin: 0 auto;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1080px;
+}
+
+.week-day-card {
+  height: 400px;
+  width: 350px;
+  text-align: center;
+  border-radius: 0%;
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 12px;
+  color: black;
   background-color: white;
-  height: fit-content;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+
+.card-title {
+  text-decoration-line: underline;
+  text-decoration-thickness: 6px;
+  text-decoration-color: black;
+}
+
+.inputs {
+  height: 400px;
+  width: 700px;
+  text-align: center;
+  border-radius: 0%;
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  margin-top: 12px;
+  color: black;
+  background-color: white;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+.input-title {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+.input-items {
+  margin-top: 10px !important;
+  text-align: left;
+  align-items: center;
+  text-decoration: underline;
 }

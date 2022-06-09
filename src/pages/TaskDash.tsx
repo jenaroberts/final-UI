@@ -5,23 +5,130 @@ export const Dash = () => {
     <>
       <div className="dashboard-container">
         <div className="card-container">
-          <div className="week-day-card">
-            <Card>
-              <CardContent>
-                <Typography variant="h5" component="div">
-                  be
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  adjective
-                </Typography>
-                <Typography variant="body2">
-                  well meaning and kindly.
-                  <br />
-                  {'"a benevolent smile"'}
-                </Typography>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                M
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                T
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                W
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                Th
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                F
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                Sa
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="week-day-card">
+            <CardContent>
+              <Typography variant="h2" component="div" className="card-title">
+                Su
+              </Typography>
+              <Typography variant="body2">
+                Task 1
+                <br />
+                Task 2
+                <br />
+                Task 3
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="inputs">
+            <CardContent>
+              <Typography variant="h5" className="input-title">
+                Habit Tracker
+                <br />
+              </Typography>
+              <Typography className="input-items">
+                input1input1input1input1input1
+                <br />
+                <br />
+                input2input2input2input2input2
+                <br />
+                <br />
+                input3input3input3input3input3
+                <br />
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </>
