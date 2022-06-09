@@ -42,9 +42,9 @@ export const TaskPage = () => {
           ))}
         </div>
         <div className="input-container">
-          <input />
-          <input />
-          <input />
+          <input type="text" placeholder="habit 1" />
+          <input type="text" placeholder="habit 2" />
+          <input type="text" placeholder="habit 3" />
         </div>
         <div className="button-container">
           <button className="button">Submit</button>

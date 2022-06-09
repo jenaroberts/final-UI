@@ -5,13 +5,23 @@ export const Dash = () => {
     <>
       <div className="dashboard-container">
         <div className="card-container">
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <Typography gutterBottom>Task 1</Typography>{" "}
-              <Typography gutterBottom>Task 2</Typography>
-              <Typography gutterBottom>Task 3</Typography>
-            </CardContent>{" "}
-          </Card>
+          <div className="week-day-card">
+            <Card>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  be
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  adjective
+                </Typography>
+                <Typography variant="body2">
+                  well meaning and kindly.
+                  <br />
+                  {'"a benevolent smile"'}
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </>
