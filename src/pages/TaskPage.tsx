@@ -1,4 +1,6 @@
 import { Chip, FormControlLabel, FormGroup, Switch } from "@mui/material";
+import { useState } from "react";
+import { Plan, PlanRequest } from "../service/plan";
 
 const tasks = [
   "Wash Sheets",
@@ -25,6 +27,15 @@ const tasks = [
 ];
 
 export const TaskPage = () => {
+  const [plan, setPlan] = useState<PlanRequest>({
+    takesMeds: false,
+    habits: [],
+    tasks: [],
+  });
+  const [habit1, setHabit1] = useState("");
+  const [habit2, setHabit2] = useState("");
+  const [habit3, setHabit3] = useState("");
+
   return (
     <>
       <div className="task-page-container">
