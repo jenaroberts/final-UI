@@ -1,4 +1,6 @@
+import { PlaceOutlined, PlayLessonSharp } from "@mui/icons-material";
 import { Chip, FormControlLabel, FormGroup, Switch } from "@mui/material";
+import { click } from "@testing-library/user-event/dist/click";
 import { useState } from "react";
 import { Plan, PlanRequest } from "../service/plan";
 
@@ -36,26 +38,66 @@ export const TaskPage = () => {
   const [habit2, setHabit2] = useState("");
   const [habit3, setHabit3] = useState("");
 
+  console.log(plan);
+
   return (
     <>
       <div className="task-page-container">
         <div className="switch">
           <FormGroup>
             <FormControlLabel
-              control={<Switch />}
+              control={
+                <Switch
+                  value={plan.takesMeds}
+                  onChange={() =>
+                    setPlan({ ...plan, takesMeds: !plan.takesMeds })
+                  }
+                />
+              }
               label="Do you take daily medication?"
             />
           </FormGroup>
         </div>
         <div className="chip-container">
-          {tasks.map((task) => (
-            <Chip label={task} variant="outlined" />
-          ))}
+          {tasks.map((task) => {
+            const isActive = plan.tasks.includes(task);
+            return (
+              <Chip
+                clickable
+                label={task}
+                variant={isActive ? "filled" : "outlined"}
+                color="primary"
+                onClick={() => {
+                  if (isActive) {
+                    plan.tasks.splice(plan.tasks.indexOf(task), 1);
+                  } else {
+                    plan.tasks.push(task);
+                  }
+                  setPlan({ ...plan });
+                }}
+              />
+            );
+          })}
         </div>
         <div className="input-container">
-          <input type="text" placeholder="habit 1" />
-          <input type="text" placeholder="habit 2" />
-          <input type="text" placeholder="habit 3" />
+          <input
+            type="text"
+            placeholder="habit 1"
+            value={"value"}
+            onChange={(e) => setHabit1(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="habit 2"
+            value={"value"}
+            onChange={(e) => setHabit2(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="habit 3"
+            value={"value"}
+            onChange={(e) => setHabit3(e.target.value)}
+          />
         </div>
         <div className="button-container">
           <button className="button">Submit</button>
