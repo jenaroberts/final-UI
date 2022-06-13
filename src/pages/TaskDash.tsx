@@ -1,12 +1,4 @@
-import {
-  getAuth,
-  signOut,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-} from "firebase/auth";
 import { UserContext } from "../context/UserContext";
-import { useNavigate } from "react-router";
-
 import {
   Button,
   Card,
@@ -35,15 +27,6 @@ export const Dash = () => {
       setPlan(p);
     })();
   }, []);
-
-  // const auth = getAuth();
-  // signOut(auth)
-  //   .then(() => {
-  //     navigate("/Home");
-  //   })
-  //   .catch((error) => {
-  //     // An error happened.
-  //   });
 
   return (
     <>

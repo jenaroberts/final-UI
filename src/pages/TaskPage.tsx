@@ -1,8 +1,7 @@
-import { PlaceOutlined, PlayLessonSharp } from "@mui/icons-material";
 import { Chip, FormControlLabel, FormGroup, Switch } from "@mui/material";
 import { click } from "@testing-library/user-event/dist/click";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+
 import { createPlan, Plan, PlanRequest } from "../service/plan";
 
 const tasks = [
