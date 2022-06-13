@@ -2,7 +2,7 @@ import { PlaceOutlined, PlayLessonSharp } from "@mui/icons-material";
 import { Chip, FormControlLabel, FormGroup, Switch } from "@mui/material";
 import { click } from "@testing-library/user-event/dist/click";
 import { useState } from "react";
-import { Plan, PlanRequest } from "../service/plan";
+import { createPlan, Plan, PlanRequest } from "../service/plan";
 
 const tasks = [
   "Wash Sheets",
@@ -83,24 +83,32 @@ export const TaskPage = () => {
           <input
             type="text"
             placeholder="habit 1"
-            value={"value"}
+            value={habit1}
             onChange={(e) => setHabit1(e.target.value)}
           />
           <input
             type="text"
             placeholder="habit 2"
-            value={"value"}
+            value={habit2}
             onChange={(e) => setHabit2(e.target.value)}
           />
           <input
             type="text"
             placeholder="habit 3"
-            value={"value"}
+            value={habit3}
             onChange={(e) => setHabit3(e.target.value)}
           />
         </div>
         <div className="button-container">
-          <button className="button">Submit</button>
+          <button
+            className="button"
+            onClick={async (e) => {
+              plan.habits = [habit1, habit2, habit3];
+              await createPlan(plan);
+            }}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </>

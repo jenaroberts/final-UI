@@ -117,8 +117,6 @@ input {
   text-align: center;
   border-radius: 0%;
   font-size: x-large;
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   margin-top: 12px;
   color: black;
@@ -133,28 +131,27 @@ input {
   text-decoration-color: black;
 }
 
-.inputs {
+.clicked-tasks {
   height: 400px;
   width: 700px;
   text-align: center;
   border-radius: 0%;
   font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
   margin-top: 12px;
   color: black;
   background-color: white;
   row-gap: 8px;
-  column-gap: 8px;
+}
+.habit-tracker-card {
+  width: 715px;
+  margin-top: 12px;
 }
 .input-title {
   text-decoration: underline;
-  text-decoration-thickness: 3px;
+  text-align: center;
 }
 .input-items {
   margin-top: 10px !important;
   text-align: left;
-  align-items: center;
   text-decoration: underline;
 }

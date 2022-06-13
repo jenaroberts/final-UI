@@ -1,131 +1,50 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, List, ListItem, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { getPlan, Plan } from "../service/plan";
+import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
+const daysOfWeek = ["m", "t", "w", "th", "f", "sa", "su"];
+const habits = ["habit1", "habit2", "habit3"];
 
 export const Dash = () => {
+  const [plan, setPlan] = useState<Plan>();
+  useEffect(() => {
+    (async () => {
+      const p = await getPlan();
+      console.log(p);
+      setPlan(p);
+    })();
+  }, []);
+
   return (
     <>
       <div className="dashboard-container">
         <div className="card-container">
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                M
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                T
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                W
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                Th
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                F
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                Sa
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="week-day-card">
-            <CardContent>
-              <Typography variant="h2" component="div" className="card-title">
-                Su
-              </Typography>
-              <Typography variant="body2">
-                Task 1
-                <br />
-                Task 2
-                <br />
-                Task 3
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="inputs">
+          {daysOfWeek.map((dayOfWeek: any) => {
+            return (
+              <Card className="week-day-card">
+                <CardContent>
+                  <Typography variant="h2" className="card-title">
+                    {dayOfWeek}
+                  </Typography>
+                  <List>
+                    {plan &&
+                      (plan as any)[dayOfWeek].map((task: any) => {
+                        return (
+                          <ListItem className="clicked-tasks">
+                            <DriveFileRenameOutlineOutlinedIcon />
+                            {task.name}
+                          </ListItem>
+                        );
+                      })}
+                  </List>
+                </CardContent>
+              </Card>
+            );
+          })}
+          <Card className="habit-tracker-card">
             <CardContent>
               <Typography variant="h5" className="input-title">
                 Habit Tracker
-                <br />
-              </Typography>
-              <Typography className="input-items">
-                input1input1input1input1input1
-                <br />
-                <br />
-                input2input2input2input2input2
-                <br />
-                <br />
-                input3input3input3input3input3
-                <br />
-                <br />
               </Typography>
             </CardContent>
           </Card>

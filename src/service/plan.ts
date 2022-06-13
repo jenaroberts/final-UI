@@ -30,14 +30,20 @@ const getClient = async () => {
   const auth = getAuth();
   const jwt = await auth.currentUser?.getIdToken();
   return axios.create({
-    baseURL: "localhost:5050",
+    baseURL: "http://localhost:5050",
     headers: {
       authorization: jwt!,
     },
   });
 };
 
-export const createPlan = async (plan: Plan) => {
+export const createPlan = async (plan: PlanRequest) => {
   const client = await getClient();
   await client.post("/plan", plan);
+};
+
+export const getPlan = async () => {
+  const client = await getClient();
+  const ret = await client.get("/plan");
+  return ret.data as Plan;
 };

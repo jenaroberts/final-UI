@@ -25,6 +25,7 @@ export const UserContextProvider = (props: {
   const { Provider } = UserContext;
   useEffect(() => {
     onAuthStateChanged(auth, (u) => {
+      console.log(u);
       setUser(u!);
       setLoaded(true);
     });
