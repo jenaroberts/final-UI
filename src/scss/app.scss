@@ -57,6 +57,7 @@ body {
   align-content: center;
 }
 .button {
+  line-height: 25px;
   margin: 20px;
   background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwB_6EuyYM7FcnkomMC4HayOnGwOL9kHIRg&usqp=CAU);
   background-position: center;
@@ -91,7 +92,7 @@ input {
   height: 100%;
 }
 .hero-card {
-  width: 500px;
+  width: 800px;
   align-items: center;
   text-align: center;
   border-radius: 0%;
@@ -131,27 +132,36 @@ input {
   text-decoration-color: black;
 }
 
-.clicked-tasks {
-  height: 400px;
-  width: 700px;
-  text-align: center;
-  border-radius: 0%;
-  font-size: x-large;
-  margin-top: 12px;
-  color: black;
-  background-color: white;
-  row-gap: 8px;
-}
 .habit-tracker-card {
   width: 715px;
   margin-top: 12px;
 }
+
 .input-title {
   text-decoration: underline;
   text-align: center;
 }
+
 .input-items {
-  margin-top: 10px !important;
+  margin-top: 10px;
   text-align: left;
-  text-decoration: underline;
+}
+
+.logout-button {
+  line-height: 25px;
+  margin: 0 auto !important;
+  margin-top: 12px !important;
+  margin-bottom: 12px !important;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwB_6EuyYM7FcnkomMC4HayOnGwOL9kHIRg&usqp=CAU);
+  background-position: center;
+  background-size: cover;
+  color: white !important;
+  font-family: monospace;
+  height: 80px !important;
+  width: 200px;
+  font-size: 42pt;
+  font-weight: bolder;
+  text-shadow: 3px 3px 4px black;
+  border-radius: 9px;
+  border-width: 3pt;
 }

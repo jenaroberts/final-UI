@@ -1,11 +1,32 @@
-import { Card, CardContent, List, ListItem, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { getPlan, Plan } from "../service/plan";
+import {
+  getAuth,
+  signOut,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+} from "firebase/auth";
+import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router";
+
+import {
+  Button,
+  Card,
+  CardContent,
+  Checkbox,
+  List,
+  ListItem,
+  Typography,
+} from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { createPlan, getPlan, Plan } from "../service/plan";
 import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import ResetTvIcon from "@mui/icons-material/ResetTv";
+import { TaskPage } from "./TaskPage";
+import { Task } from "@mui/icons-material";
 const daysOfWeek = ["m", "t", "w", "th", "f", "sa", "su"];
-const habits = ["habit1", "habit2", "habit3"];
 
 export const Dash = () => {
+  const { Provider } = UserContext;
   const [plan, setPlan] = useState<Plan>();
   useEffect(() => {
     (async () => {
@@ -14,6 +35,15 @@ export const Dash = () => {
       setPlan(p);
     })();
   }, []);
+
+  // const auth = getAuth();
+  // signOut(auth)
+  //   .then(() => {
+  //     navigate("/Home");
+  //   })
+  //   .catch((error) => {
+  //     // An error happened.
+  //   });
 
   return (
     <>
@@ -46,8 +76,22 @@ export const Dash = () => {
               <Typography variant="h5" className="input-title">
                 Habit Tracker
               </Typography>
+              <List>
+                {plan &&
+                  (plan as any).habits.map((task: any) => {
+                    return (
+                      <>
+                        <ListItem className="clicked-tasks">
+                          {plan?.habits}
+                        </ListItem>
+                      </>
+                    );
+                  })}
+              </List>
             </CardContent>
           </Card>
+          <Button className="logout-button">Log Out</Button>
+          <ResetTvIcon />
         </div>
       </div>
     </>
