@@ -5,6 +5,16 @@ export interface Task {
   checked: boolean;
 }
 
+export interface PlanHabit {
+  name: string;
+  m: boolean;
+  t: boolean;
+  w: boolean;
+  th: boolean;
+  f: boolean;
+  sa: boolean;
+  su: boolean;
+}
 export interface Plan {
   m: Task[];
   t: Task[];
@@ -14,7 +24,7 @@ export interface Plan {
   sa: Task[];
   su: Task[];
   userId: string;
-  habits: string[];
+  habits: PlanHabit[];
   createdAt: Date;
   takesMeds: boolean;
   isActive: boolean;
@@ -46,4 +56,9 @@ export const getPlan = async () => {
   const client = await getClient();
   const ret = await client.get("/plan");
   return ret.data as Plan;
+};
+
+export const checkHabit = async (habitName: string, day: string) => {
+  const client = await getClient();
+  await client.post("/plan/habits", { habitName, day });
 };

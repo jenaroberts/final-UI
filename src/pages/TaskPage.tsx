@@ -1,8 +1,8 @@
 import { Chip, FormControlLabel, FormGroup, Switch } from "@mui/material";
-import { click } from "@testing-library/user-event/dist/click";
 import { useState } from "react";
 
-import { createPlan, Plan, PlanRequest } from "../service/plan";
+import { createPlan, PlanRequest } from "../service/plan";
+import { useNavigate } from "react-router";
 
 const tasks = [
   "Wash Sheets",
@@ -37,7 +37,7 @@ export const TaskPage = () => {
   const [habit1, setHabit1] = useState("");
   const [habit2, setHabit2] = useState("");
   const [habit3, setHabit3] = useState("");
-
+  const navigate = useNavigate();
   console.log(plan);
 
   return (
@@ -105,6 +105,7 @@ export const TaskPage = () => {
             onClick={async (e) => {
               plan.habits = [habit1, habit2, habit3];
               await createPlan(plan);
+              navigate("/dashboard");
             }}
           >
             Submit

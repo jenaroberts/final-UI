@@ -4,22 +4,27 @@ import {
   Card,
   CardContent,
   Checkbox,
+  IconButton,
   List,
   ListItem,
   Typography,
 } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
 import { createPlan, getPlan, Plan } from "../service/plan";
 import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import ResetTvIcon from "@mui/icons-material/ResetTv";
+import { useNavigate } from "react-router";
 import { TaskPage } from "./TaskPage";
 import { Task } from "@mui/icons-material";
 const daysOfWeek = ["m", "t", "w", "th", "f", "sa", "su"];
 
 export const Dash = () => {
-  const { Provider } = UserContext;
+  const { user } = useContext(UserContext);
   const [plan, setPlan] = useState<Plan>();
+  const auth = getAuth();
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       const p = await getPlan();
@@ -59,13 +64,22 @@ export const Dash = () => {
               <Typography variant="h5" className="input-title">
                 Habit Tracker
               </Typography>
+              <div className="habit-day-week-container">
+                {" "}
+                {daysOfWeek.map((day) => (
+                  <Typography className="day-of-week-habits">{day}</Typography>
+                ))}
+              </div>
               <List>
                 {plan &&
-                  (plan as any).habits.map((task: any) => {
+                  plan.habits.map((habit) => {
                     return (
                       <>
                         <ListItem className="clicked-tasks">
-                          {plan?.habits}
+                          <Typography>{habit.name}</Typography>
+                          {daysOfWeek.map((dayOfWeek) => {
+                            return <Checkbox />;
+                          })}
                         </ListItem>
                       </>
                     );
@@ -73,8 +87,20 @@ export const Dash = () => {
               </List>
             </CardContent>
           </Card>
-          <Button className="logout-button">Log Out</Button>
-          <ResetTvIcon />
+          {!!user && (
+            <button
+              className="logout-button"
+              onClick={async () => {
+                await signOut(auth);
+                navigate("/home");
+              }}
+            >
+              Log Out
+            </button>
+          )}
+          <IconButton onClick={() => navigate("/taskPage")}>
+            <ResetTvIcon />
+          </IconButton>
         </div>
       </div>
     </>

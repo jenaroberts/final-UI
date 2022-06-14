@@ -134,7 +134,7 @@ input {
 }
 
 .habit-tracker-card {
-  width: 715px;
+  width: 714px;
   margin-top: 12px;
 }
 
@@ -160,9 +160,21 @@ input {
   font-family: monospace;
   height: 80px !important;
   width: 200px;
-  font-size: 42pt;
+  font-size: 30pt;
   font-weight: bolder;
-  text-shadow: 3px 3px 4px black;
+  text-shadow: 3px 3px 4px black !important;
   border-radius: 9px;
-  border-width: 3pt;
+  border-width: 3pt !important;
+}
+
+.MuiSvgIcon-root {
+  align-self: center;
+}
+
+.habit-day-week-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  justify-content: flex-end;
+  margin-right: 12px;
 }

@@ -39,14 +39,14 @@ export const Home = () => {
       <Card className="hero-card">
         <h1 className="title">Neuro Adulting</h1>
         <p>
-          1 in 7 adults are considered Neurodivergent. Meaning their brain is
-          wired a little different than adults who are considered Neurotypical
-          or "average". Having ADHD falls under the umbrella of Neurodivergence.
-          Weekly chores and basic self care routines are a STRUGGLE to maintain
-          when your brian functionality is wired to process 100 different things
-          all at once. The longer your list of things to accomplish gets, the
-          more your brain is working overtime. This app segments your weekly
-          accomplishments into manageable daily tasks and habits to be tracked.
+          1 in 7 adults are considered Neurodivergent. Meaning their brains are
+          wired a little different from adults who are considered Neurotypical
+          or "average". Weekly chores and basic self care routines are a
+          STRUGGLE to maintain when your brian functionality is wired to process
+          100 different things all at once. The longer your list of things to
+          accomplish gets, the more your brain is working overtime. This app
+          segments your weekly accomplishments into manageable daily tasks and
+          habits to be tracked over the course of a week.
         </p>
 
         <button className="button" onClick={() => onClick()}>
