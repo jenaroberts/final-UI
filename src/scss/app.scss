@@ -92,6 +92,7 @@ input {
   height: 100%;
 }
 .hero-card {
+  border-style: solid;
   width: 700px;
   align-items: center;
   text-align: center;
@@ -114,38 +115,35 @@ input {
 }
 
 .week-day-card {
+  border-style: solid;
   height: 400px;
   width: 350px;
   text-align: center;
+  font-size: 20px;
   border-radius: 0%;
-  font-size: x-large;
   margin: 0 auto;
-  margin-top: 12px;
+  margin-top: 18px;
   color: black;
   background-color: white;
   row-gap: 8px;
   column-gap: 8px;
 }
 
+.css-46bh2p-MuiCardContent-root {
+  padding: 0 !important;
+}
+
+.task-name {
+  font-size: 20px !important;
+}
+.done {
+  text-decoration: line-through;
+}
+
 .card-title {
   text-decoration-line: underline;
   text-decoration-thickness: 6px;
   text-decoration-color: black;
-}
-
-.habit-tracker-card {
-  width: 714px;
-  margin-top: 12px;
-}
-
-.input-title {
-  text-decoration: underline;
-  text-align: center;
-}
-
-.input-items {
-  margin-top: 10px;
-  text-align: left;
 }
 
 .logout-button {
@@ -171,10 +169,51 @@ input {
   align-self: center;
 }
 
-.habit-day-week-container {
+.habit-title {
+  text-align: center;
+  width: 100%;
+  text-decoration: underline;
+}
+.habit-tracker-card {
+  margin-top: 12px !important;
+  width: 709px;
+  border-style: solid;
   display: flex;
   flex-direction: row;
-  column-gap: 30px;
-  justify-content: flex-end;
-  margin-right: 12px;
+  margin-left: 5px;
+}
+
+.day-of-week-letter {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  column-gap: 39px;
+  margin-left: 259px !important;
+}
+
+.card-content {
+  width: 100%;
+}
+
+.habit-name {
+  width: 240px;
+}
+
+.days-of-week {
+  display: flex;
+  flex-direction: row;
+}
+
+.MuiCheckbox-root {
+  padding: 6px !important;
+  margin-left: 5px !important;
+}
+
+.medication-banner {
+  font-size: 42pt !important;
+  font-weight: bolder !important;
+  color: #00f3fc;
+  font-style: italic;
+  text-align: center !important;
+  text-shadow: 4px 4px 4px black !important;
 }

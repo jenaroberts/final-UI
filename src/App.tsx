@@ -49,7 +49,7 @@ function App() {
         <CssBaseline />
         <BrowserRouter>
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/taskPage" element={<TaskPage />} />
             <Route path="/dashboard" element={<Dash />} />
           </Routes>

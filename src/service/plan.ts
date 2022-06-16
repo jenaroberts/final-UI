@@ -40,7 +40,8 @@ const getClient = async () => {
   const auth = getAuth();
   const jwt = await auth.currentUser?.getIdToken();
   return axios.create({
-    baseURL: "http://localhost:5050",
+    baseURL: "https://us-central1-neuro-adulting-jr.cloudfunctions.net/rest",
+    // baseURL: "http://localhost:5050",
     headers: {
       authorization: jwt!,
     },
@@ -60,5 +61,12 @@ export const getPlan = async () => {
 
 export const checkHabit = async (habitName: string, day: string) => {
   const client = await getClient();
-  await client.post("/plan/habits", { habitName, day });
+  const { data } = await client.post("/plan/habits", { habitName, day });
+  return data as Plan;
+};
+
+export const checkTask = async (name: string, day: string) => {
+  const client = await getClient();
+  const { data } = await client.post("/plan/tasks", { name, day });
+  return data as Plan;
 };

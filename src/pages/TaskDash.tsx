@@ -11,7 +11,13 @@ import {
 } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
-import { createPlan, getPlan, Plan } from "../service/plan";
+import {
+  checkHabit,
+  checkTask,
+  createPlan,
+  getPlan,
+  Plan,
+} from "../service/plan";
 import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import ResetTvIcon from "@mui/icons-material/ResetTv";
@@ -25,17 +31,23 @@ export const Dash = () => {
   const [plan, setPlan] = useState<Plan>();
   const auth = getAuth();
   const navigate = useNavigate();
+  const resyncPlan = async () => {
+    const p = await getPlan();
+    console.log(p);
+    setPlan(p);
+  };
   useEffect(() => {
     (async () => {
-      const p = await getPlan();
-      console.log(p);
-      setPlan(p);
+      await resyncPlan();
     })();
   }, []);
 
   return (
     <>
       <div className="dashboard-container">
+        {plan?.takesMeds && (
+          <Typography className="medication-banner">TAKE YOUR MEDS!</Typography>
+        )}
         <div className="card-container">
           {daysOfWeek.map((dayOfWeek: any) => {
             return (
@@ -49,8 +61,26 @@ export const Dash = () => {
                       (plan as any)[dayOfWeek].map((task: any) => {
                         return (
                           <ListItem className="clicked-tasks">
-                            <DriveFileRenameOutlineOutlinedIcon />
-                            {task.name}
+                            <IconButton
+                              onClick={async () => {
+                                const updated = await checkTask(
+                                  task.name,
+                                  dayOfWeek
+                                );
+                                setPlan(updated);
+                              }}
+                            >
+                              {" "}
+                              <DriveFileRenameOutlineOutlinedIcon />{" "}
+                            </IconButton>
+                            <Typography
+                              className={`task-name ${
+                                task.checked ? "done" : ""
+                              }`}
+                            >
+                              {" "}
+                              {task.name}{" "}
+                            </Typography>
                           </ListItem>
                         );
                       })}
@@ -60,31 +90,43 @@ export const Dash = () => {
             );
           })}
           <Card className="habit-tracker-card">
-            <CardContent>
-              <Typography variant="h5" className="input-title">
-                Habit Tracker
-              </Typography>
-              <div className="habit-day-week-container">
-                {" "}
+            <CardContent className="card-content">
+              <Typography className="habit-title">Habit Tracker</Typography>
+              <div className="day-of-week-letter">
                 {daysOfWeek.map((day) => (
-                  <Typography className="day-of-week-habits">{day}</Typography>
+                  <Typography>{day}</Typography>
                 ))}
               </div>
-              <List>
+              <div className="habits-names">
                 {plan &&
                   plan.habits.map((habit) => {
                     return (
                       <>
-                        <ListItem className="clicked-tasks">
-                          <Typography>{habit.name}</Typography>
-                          {daysOfWeek.map((dayOfWeek) => {
-                            return <Checkbox />;
-                          })}
+                        <ListItem className="names-checkboxes">
+                          <Typography className="habit-name">
+                            {habit.name}
+                          </Typography>
+                          <div className="days-of-week">
+                            {daysOfWeek.map((dayOfWeek) => {
+                              return (
+                                <Checkbox
+                                  checked={(habit as any)[dayOfWeek]}
+                                  onChange={async () => {
+                                    const updated = await checkHabit(
+                                      habit.name,
+                                      dayOfWeek
+                                    );
+                                    setPlan(updated);
+                                  }}
+                                />
+                              );
+                            })}
+                          </div>
                         </ListItem>
                       </>
                     );
                   })}
-              </List>
+              </div>
             </CardContent>
           </Card>
           {!!user && (
@@ -92,7 +134,7 @@ export const Dash = () => {
               className="logout-button"
               onClick={async () => {
                 await signOut(auth);
-                navigate("/home");
+                navigate("/");
               }}
             >
               Log Out
