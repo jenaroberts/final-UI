@@ -76,7 +76,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 10px auto;
-  height: 75px;
+  height: 200px;
 }
 input {
   font-family: monospace;
@@ -88,6 +88,7 @@ input {
   border-width: 3px !important;
 }
 .home-container {
+  margin: 10px;
   width: 100%;
   height: 100%;
 }
@@ -129,7 +130,7 @@ input {
   column-gap: 8px;
 }
 
-.css-46bh2p-MuiCardContent-root {
+.MuiCardContent-root {
   padding: 0 !important;
 }
 

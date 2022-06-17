@@ -35,9 +35,9 @@ export const Home = () => {
 
   return (
     <div className="home-container">
-      <img src="/weblogo.png" className="site-logo" />
       <Card className="hero-card">
         <h1 className="title">Neuro Adulting</h1>
+        <img src="/rainbow.png" className="site-logo" />
         <p>
           1 in 7 adults are considered Neurodivergent. Meaning their brains are
           wired a little different from adults who are considered Neurotypical
